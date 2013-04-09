@@ -26,12 +26,11 @@
     <list default="true" id="a0236d99-8704-449d-ba53-eeb88be141e3" name="Default" comment="" />
     <ignored path="SimpleFractal.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="$PROJECT_DIR$/res/values/strings.xml" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365212609788" ignored="false" />
     <file path="/main.xml" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365436897243" ignored="false" />
     <file path="/FactalSurface.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365214789674" ignored="false" />
     <file path="/fragment.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365418845357" ignored="false" />
     <file path="/MainActivity.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365438650396" ignored="false" />
-    <file path="/FractalSurface.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365522822906" ignored="false" />
+    <file path="/FractalSurface.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365526919041" ignored="false" />
     <file path="/FractalGen.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365395003810" ignored="false" />
     <file path="/MandelbrotJavaGen.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365444228756" ignored="false" />
     <file path="/Palette.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365390326279" ignored="false" />
@@ -41,6 +40,7 @@
     <file path="$PROJECT_DIR$/gen/com/hiq/SimpleFractal/Manifest.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365520552051" ignored="false" />
     <file path="/AndroidManifest.xml" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365520545408" ignored="false" />
     <file path="/PriSecPalette.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365523052122" ignored="false" />
+    <file path="/strings.xml" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365526446358" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,22 +90,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalSurface.java" line="21" class="com.hiq.SimpleFractal.FractalSurface" package="com.hiq.SimpleFractal">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -115,10 +100,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="606" selection-end="606" vertical-scroll-proportion="0.47134936">
+            <state line="9" column="0" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -133,31 +118,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FractalSurface.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FractalSurface.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalSurface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="23" selection-start="905" selection-end="905" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SeaPalette.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/SeaPalette.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="1764" selection-end="1915" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PriSecPalette.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/PriSecPalette.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="24" selection-start="4013" selection-end="4013" vertical-scroll-proportion="0.0">
+            <state line="131" column="39" selection-start="4351" selection-end="4351" vertical-scroll-proportion="0.80406654">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="40" selection-start="142" selection-end="142" vertical-scroll-proportion="-1.8">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -212,9 +188,10 @@
         <option value="$PROJECT_DIR$/src/com/hiq/SimpleFractal/MandelbrotJavaGen.java" />
         <option value="$PROJECT_DIR$/src/com/hiq/SimpleFractal/SeaPalette.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalSurface.java" />
         <option value="$PROJECT_DIR$/src/com/hiq/SimpleFractal/PriSecPalette.java" />
         <option value="$PROJECT_DIR$/src/com/hiq/SimpleFractal/MainActivity.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalSurface.java" />
       </list>
     </option>
   </component>
@@ -286,6 +263,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SimpleFractal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleFractal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleFractal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleFractal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleFractal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -542,16 +551,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1916" y="-4" width="1928" height="1088" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3944563" sideWeight="0.9279616" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3944563" sideWeight="0.9242262" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3944563" sideWeight="0.06830309" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3944563" sideWeight="0.07203842" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -563,7 +572,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20170757" sideWeight="0.60554373" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.49306297" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.4909285" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -634,16 +643,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0">
@@ -654,7 +653,9 @@
     <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalSurface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="40" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -713,9 +714,25 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/MandelbrotJavaGen.java">
+    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/SeaPalette.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="2074" selection-end="2074" vertical-scroll-proportion="0.0">
+        <state line="50" column="0" selection-start="1764" selection-end="1915" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/PriSecPalette.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="24" selection-start="4013" selection-end="4013" vertical-scroll-proportion="1.5822551">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="40" selection-start="142" selection-end="142" vertical-scroll-proportion="-1.8">
           <folding />
         </state>
       </provider>
@@ -727,33 +744,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/SeaPalette.java">
+    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1764" selection-end="1915" vertical-scroll-proportion="0.0">
+        <state line="9" column="0" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/MandelbrotJavaGen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="2074" selection-end="2074" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalSurface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="23" selection-start="905" selection-end="905" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/PriSecPalette.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="24" selection-start="4013" selection-end="4013" vertical-scroll-proportion="0.0">
+        <state line="131" column="39" selection-start="4351" selection-end="4351" vertical-scroll-proportion="0.80406654">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="606" selection-end="606" vertical-scroll-proportion="0.47134936">
-          <folding />
         </state>
       </provider>
     </entry>
