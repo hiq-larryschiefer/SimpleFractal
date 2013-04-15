@@ -2,6 +2,7 @@ package com.hiq.SimpleFractal;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.Window;
 
@@ -39,5 +40,26 @@ public class MainActivity extends Activity {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        boolean                 ret = false;
+
+        //  Treat volume up/down as our switch mechanism
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_VOLUME_UP:
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                mFractSurf.switchGenerator();
+                ret = true;
+                break;
+
+            default:
+                //  Pass thru everything else
+                ret = super.onKeyDown(keyCode, event);
+                break;
+        }
+
+        return ret;
     }
 }

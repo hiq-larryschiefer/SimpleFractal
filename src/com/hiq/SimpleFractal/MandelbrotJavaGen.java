@@ -6,6 +6,7 @@ import android.content.Context;
  * Algorithm inspired by Wikipedia page: http://en.wikipedia.org/wiki/Mandlebrot_fractal
  */
 public class MandelbrotJavaGen extends FractalGen {
+    private static final String FRACT_GEN_NAME = "Mandelbrot Java Generator";
     private static final double MIN_X_VAL = -2.5;
     private static final double MAX_X_VAL = 1.0;
     private static final double MIN_Y_VAL = -1;
@@ -67,5 +68,10 @@ public class MandelbrotJavaGen extends FractalGen {
 
         //  LJS: TODO - Generate the bitmap based on the current width, height, zoom and iterations
         return 0;
+    }
+
+    @Override
+    public String getName() {
+        return FRACT_GEN_NAME;
     }
 }

@@ -52,4 +52,5 @@ public abstract class FractalGen {
     }
 
     public abstract int generate(int[] bitmap);
+    public abstract String getName();
 }

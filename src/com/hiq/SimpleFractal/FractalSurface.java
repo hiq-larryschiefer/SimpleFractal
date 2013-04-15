@@ -4,21 +4,30 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TimingLogger;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
+import android.widget.Toast;
 
 public class FractalSurface extends SurfaceView implements SurfaceHolder.Callback {
     private static final String LOG_TAG = "FractalSurface";
 
     public static final int     DEFAULT_ITERATIONS = 200;
+    public static final int     GEN_MAND_JAVA = 0;
+    public static final int     GEN_MAND_RS = 1;
+    public static final int     GEN_MAND_NATIVE = 2;
+    public static final int     GEN_COUNT = 2;  //  No native yet
 
     private Context             mContext;
     private boolean             mSurfaceReady = false;
     private FractalGen          mGen = null;
+    private FractalGen[]        mGenerators = new FractalGen[GEN_COUNT];
+    private int                 mCurGen = GEN_MAND_JAVA;
     private int[]               mImage = null;
     private FractalPalette      mPalette;
     private int                 mWidth = 0;
@@ -68,26 +77,15 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
         boolean                 needGen = false;
 
         //  We receive this call when the surface is created or if there is
-        //  a change which has occurred.  Either create a generator or revise the one
-        //  we already have, then make it draw.
+        //  a change which has occurred.  See if we need to create or resize our
+        //  image buffer then kick off a generation.
         if (mGen == null) {
-            mGen = new MandelbrotJavaGen(mContext,
-                                         width,
-                                         height,
-                                         DEFAULT_ITERATIONS,
-                                         mPalette.getPalette());
-//            mGen = new MandelbrotRSGen(mContext,
-//                                       width,
-//                                       height,
-//                                       DEFAULT_ITERATIONS,
-//                                       mPalette.getPalette());
             mImage = new int[width * height];
             mWidth = width;
             mHeight = height;
             needGen = true;
         } else {
             if ((mWidth != width) || (mHeight != height)) {
-                mGen.setDimensions(width, height);
                 if ((width * height) > mImage.length) {
                     mImage = new int[width * height];
                 }
@@ -96,10 +94,7 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
             }
         }
 
-        mDialog = mBuilder.create();
-        mDialog.show();
-        Log.d(LOG_TAG, "Kicking off generation");
-        new GeneratorTask().execute(needGen);
+        doGeneration(needGen);
     }
 
     @Override
@@ -109,14 +104,110 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
         }
     }
 
+    private FractalGen createGenerator(int gen) {
+        FractalGen              newGen = null;
+
+        switch (gen) {
+            case GEN_MAND_JAVA:
+                newGen = new MandelbrotJavaGen(mContext,
+                                               mWidth,
+                                               mHeight,
+                                               DEFAULT_ITERATIONS,
+                                               mPalette.getPalette());
+                break;
+
+            case GEN_MAND_RS:
+                newGen = new MandelbrotRSGen(mContext,
+                                             mWidth,
+                                             mHeight,
+                                             DEFAULT_ITERATIONS,
+                                             mPalette.getPalette());
+                break;
+
+            default:
+                Log.e(LOG_TAG,
+                      "Invalid gen type provided: " + Integer.toString(gen));
+                break;
+        }
+
+        return newGen;
+    }
+
+    private void doGeneration(boolean needGen) {
+        if (mGen == null) {
+            if (mGenerators[mCurGen] == null) {
+                mGenerators[mCurGen] = createGenerator(mCurGen);
+            }
+
+            mGen = mGenerators[mCurGen];
+        }
+
+        Toast.makeText(mContext,
+                       "Generating with: " + mGen.getName(),
+                       Toast.LENGTH_SHORT).show();
+        mDialog = mBuilder.create();
+        mDialog.show();
+
+        Log.d(LOG_TAG, "Kicking off generation");
+        new GeneratorTask().execute(needGen);
+    }
+
+    public void switchGenerator() {
+        //  Switch generator and re-generate
+        mCurGen++;
+        mGen = null;
+        if (mCurGen >= GEN_COUNT) {
+            mCurGen = GEN_MAND_JAVA;
+        }
+
+        //  Blank the screen on switch
+        for (int i = 0; i < mImage.length; i++) {
+            mImage[i] = Color.argb(255, 0, 0, 0);
+        }
+
+        applyImage();
+        doGeneration(true);
+    }
+
+    private void applyImage() {
+        synchronized (FractalSurface.this) {
+            if (mSurfaceReady) {
+                TimingLogger timings;
+
+                timings =
+                        new TimingLogger(LOG_TAG,
+                                this.getClass().getSimpleName());
+
+                SurfaceHolder holder = getHolder();
+                Canvas can = holder.lockCanvas();
+                timings.addSplit("locked canvas");
+                can.drawBitmap(mImage, 0, mWidth, 0, 0, mWidth, mHeight, false, null);
+                timings.addSplit("image drawn");
+                holder.unlockCanvasAndPost(can);
+                timings.addSplit("unlocked and posted");
+                timings.dumpToLog();
+            }
+        }
+    }
+
     private class GeneratorTask extends AsyncTask<Boolean, Integer, Void> {
+        long         mStartTime;
+        long         mEndTime;
+
         protected Void doInBackground(Boolean... doGen) {
             TimingLogger timings;
 
+            //  Do timing with both the logger and our own tracking
             timings = new TimingLogger(LOG_TAG,
                                        this.getClass().getSimpleName());
             if (doGen[0]) {
+                mStartTime = SystemClock.elapsedRealtime();
+
+                mGen.setDimensions(mWidth, mHeight);
                 mGen.generate(mImage);
+
+                mEndTime = SystemClock.elapsedRealtime();
+
                 timings.addSplit("GENERATED");
                 timings.dumpToLog();
             }
@@ -136,24 +227,12 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
                 mDialog = null;
             }
 
-            synchronized (FractalSurface.this) {
-                if (mSurfaceReady) {
-                    TimingLogger timings;
-
-                    timings =
-                        new TimingLogger(LOG_TAG,
-                                         this.getClass().getSimpleName());
-
-                    SurfaceHolder holder = getHolder();
-                    Canvas can = holder.lockCanvas();
-                    timings.addSplit("locked canvas");
-                    can.drawBitmap(mImage, 0, mWidth, 0, 0, mWidth, mHeight, false, null);
-                    timings.addSplit("image drawn");
-                    holder.unlockCanvasAndPost(can);
-                    timings.addSplit("unlocked and posted");
-                    timings.dumpToLog();
-                }
-            }
+            Toast.makeText(mContext,
+                           ("Generation done in " +
+                            Long.toString(mEndTime - mStartTime) +
+                            "ms"),
+                           Toast.LENGTH_SHORT).show();
+            applyImage();
         }
     }
 }

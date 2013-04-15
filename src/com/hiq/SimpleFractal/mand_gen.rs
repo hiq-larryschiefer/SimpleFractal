@@ -31,8 +31,6 @@ void root(const uchar4 *v_in, uchar4 *v_out, uint32_t x, uint32_t y) {
     double                      orbitY2;
     double                      tempX;
 
-    //rsDebug("x", x);
-    //rsDebug("y", y);
     xScaler = (MAX_X_VAL - MIN_X_VAL) / (double)width;
     yScaler = (MAX_Y_VAL - MIN_Y_VAL) / (double)height;
 
@@ -58,12 +56,8 @@ void root(const uchar4 *v_in, uchar4 *v_out, uint32_t x, uint32_t y) {
         paletteIndex = 0;
     }
 
-    //rsDebug("i" , i);
-    //rsDebug("color palette", palette[paletteIndex]);
-    //rsDebug("v_out", v_out);
     v_out->a = (palette[paletteIndex] & 0xFF000000) >> 24;
     v_out->r = (palette[paletteIndex] & 0x00FF0000) >> 16;
     v_out->g = (palette[paletteIndex] & 0x0000FF00) >> 8;
     v_out->b = (palette[paletteIndex] & 0x000000FF);
-    //rsDebug("*v_out", (int)*v_out);
 }

@@ -12,6 +12,8 @@ import com.hiq.SimpleFractal.mand_gen.ScriptC_mand_gen;
 
 public class MandelbrotRSGen extends FractalGen {
     private static final String LOG_TAG = MandelbrotRSGen.class.getSimpleName();
+    private static final String FRACT_GEN_NAME = "Mandelbrot Renderscript Generator";
+
     RenderScript                mRSCtx;
     ScriptC_mand_gen            mMandGen;
 
@@ -78,6 +80,11 @@ public class MandelbrotRSGen extends FractalGen {
         mMandGen.set_centerX(centerX);
         mMandGen.set_centerY(centerY);
         mMandGen.set_zoom(zoom);
+    }
+
+    @Override
+    public String getName() {
+        return FRACT_GEN_NAME;
     }
 }
 
