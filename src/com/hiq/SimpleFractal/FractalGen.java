@@ -1,6 +1,9 @@
 package com.hiq.SimpleFractal;
 
+import android.content.Context;
+
 public abstract class FractalGen {
+    protected Context           mContext;
     protected int               mWidth;
     protected int               mHeight;
     protected int               mIter;
@@ -9,7 +12,8 @@ public abstract class FractalGen {
     protected int               mCenterX;
     protected int               mCenterY;
 
-    public FractalGen(int width, int height, int iterations, int[] palette) {
+    public FractalGen(Context context, int width, int height, int iterations, int[] palette) {
+        mContext = context;
         mWidth = width;
         mHeight = height;
         mIter = iterations;

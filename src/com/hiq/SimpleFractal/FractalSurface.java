@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.os.AsyncTask;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TimingLogger;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
 
@@ -70,10 +71,16 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
         //  a change which has occurred.  Either create a generator or revise the one
         //  we already have, then make it draw.
         if (mGen == null) {
-            mGen = new MandelbrotJavaGen(width,
+            mGen = new MandelbrotJavaGen(mContext,
+                                         width,
                                          height,
                                          DEFAULT_ITERATIONS,
                                          mPalette.getPalette());
+//            mGen = new MandelbrotRSGen(mContext,
+//                                       width,
+//                                       height,
+//                                       DEFAULT_ITERATIONS,
+//                                       mPalette.getPalette());
             mImage = new int[width * height];
             mWidth = width;
             mHeight = height;
@@ -104,10 +111,17 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
 
     private class GeneratorTask extends AsyncTask<Boolean, Integer, Void> {
         protected Void doInBackground(Boolean... doGen) {
+            TimingLogger timings;
+
+            timings = new TimingLogger(LOG_TAG,
+                                       this.getClass().getSimpleName());
             if (doGen[0]) {
                 mGen.generate(mImage);
+                timings.addSplit("GENERATED");
+                timings.dumpToLog();
             }
 
+            timings = null;
             return null;
         }
 
@@ -124,12 +138,20 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
 
             synchronized (FractalSurface.this) {
                 if (mSurfaceReady) {
-                    Log.d(LOG_TAG, "Rendering...");
+                    TimingLogger timings;
+
+                    timings =
+                        new TimingLogger(LOG_TAG,
+                                         this.getClass().getSimpleName());
+
                     SurfaceHolder holder = getHolder();
                     Canvas can = holder.lockCanvas();
+                    timings.addSplit("locked canvas");
                     can.drawBitmap(mImage, 0, mWidth, 0, 0, mWidth, mHeight, false, null);
+                    timings.addSplit("image drawn");
                     holder.unlockCanvasAndPost(can);
-                    Log.d(LOG_TAG, "Rendering done.");
+                    timings.addSplit("unlocked and posted");
+                    timings.dumpToLog();
                 }
             }
         }

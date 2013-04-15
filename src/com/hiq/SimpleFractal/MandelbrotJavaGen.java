@@ -1,18 +1,21 @@
 package com.hiq.SimpleFractal;
 
+import android.content.Context;
+
 /**
  * Algorithm inspired by Wikipedia page: http://en.wikipedia.org/wiki/Mandlebrot_fractal
  */
 public class MandelbrotJavaGen extends FractalGen {
     private static final double MIN_X_VAL = -2.5;
-    private static final double MAX_X_VAL = 1;
+    private static final double MAX_X_VAL = 1.0;
     private static final double MIN_Y_VAL = -1;
-    private static final double MAX_Y_VAL = 1;
-    private static final double STOP_VAL = 2.0 * 2.0;
+    private static final double MAX_Y_VAL = 1.0;
+    private static final double MODULO_VAL = 2.0;
+    private static final double STOP_VAL = MODULO_VAL * MODULO_VAL;
 
 
-    public MandelbrotJavaGen(int width, int height, int iterations, int[] palette) {
-        super(width, height, iterations, palette);
+    public MandelbrotJavaGen(Context context, int width, int height, int iterations, int[] palette) {
+        super(context, width, height, iterations, palette);
     }
 
     @Override
@@ -41,11 +44,11 @@ public class MandelbrotJavaGen extends FractalGen {
 
                 orbitX = 0;
                 orbitY = 0;
-                orbitX2 = orbitX * orbitX;
-                orbitY2 = orbitY * orbitY;
+                orbitX2 = 0;
+                orbitY2 = 0;
                 for (i = 0; (i < mIter) && ((orbitX2 + orbitY2) < STOP_VAL); i++) {
                     tempX = orbitX2 - orbitY2 + scaledX;
-                    orbitY = 2.0 * orbitX * orbitY + scaledY;
+                    orbitY = MODULO_VAL * orbitX * orbitY + scaledY;
                     orbitX = tempX;
 
                     orbitX2 = orbitX * orbitX;

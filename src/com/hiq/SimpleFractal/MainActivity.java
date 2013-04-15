@@ -10,6 +10,7 @@ public class MainActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         //  Get rid of our title bar so we have the maximum real estate possible
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
