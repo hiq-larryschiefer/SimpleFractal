@@ -1,8 +1,13 @@
+Simple Android application for generating fractals.  At this time only Mandelbrot fractals
+are supported.
+
 Use volume up/down to change the generator in use.
 
 Timing data is ELAPSED time, not EXECUTION time.  Logged as well as printed via Toast.
 
 STILL NEEDED:
+- zoom in/out 
+- configuration settings for #iterations, default zoom
 - Native generator implementation
 - Multi-threaded Java implementation
 - Multi-threaded native generator
