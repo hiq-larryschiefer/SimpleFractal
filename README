@@ -1,4 +1,4 @@
-This file to include basic details.
-
 Use volume up/down to change the generator in use.
+
+Timing data is ELAPSED time, not EXECUTION time.  Logged as well as printed via Toast.
 

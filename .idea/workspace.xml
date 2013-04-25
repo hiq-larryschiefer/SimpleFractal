@@ -23,13 +23,7 @@
     </option>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0236d99-8704-449d-ba53-eeb88be141e3" name="Default" comment="Added Renderscript implementation and set it to be used by default.  Palette usage in the RS assumes byte ordering, which may not be portable on all Android platforms.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalGen.java" afterPath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalGen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalSurface.java" afterPath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalSurface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/MandelbrotJavaGen.java" afterPath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/MandelbrotJavaGen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/MandelbrotRSGen.java" afterPath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/MandelbrotRSGen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/mand_gen.rs" afterPath="$PROJECT_DIR$/src/com/hiq/SimpleFractal/mand_gen.rs" />
+    <list default="true" id="a0236d99-8704-449d-ba53-eeb88be141e3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SimpleFractal.iws" />
@@ -49,7 +43,7 @@
     <file path="/AndroidManifest.xml" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365520545408" ignored="false" />
     <file path="/PriSecPalette.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365523052122" ignored="false" />
     <file path="/strings.xml" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365907829896" ignored="false" />
-    <file path="/Dummy.txt" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1366040807340" ignored="false" />
+    <file path="/Dummy.txt" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1366046654282" ignored="false" />
     <file path="/MandelbrotRSGen.java" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1366034813320" ignored="false" />
     <file path="/mand_gen.rs" changelist="a0236d99-8704-449d-ba53-eeb88be141e3" time="1365958036703" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -113,7 +107,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.5223482">
       <split-first>
         <leaf>
-          <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/MainActivity.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="57" column="45" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.70051634">
@@ -203,10 +197,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="mand_gen.rs" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="mand_gen.rs" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/mand_gen.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="62" column="0" selection-start="1847" selection-end="1847" vertical-scroll-proportion="1.2437811">
+                <state line="35" column="0" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.5721393">
                   <folding />
                 </state>
               </provider>
@@ -603,7 +597,11 @@
       <created>1366023430624</created>
       <updated>1366023430624</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Renderscript implementation and set it to be used by default.  Palette usage in the RS assumes byte ordering, which may not be portable on all Android platforms.">
+      <created>1366046675711</created>
+      <updated>1366046675711</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -649,7 +647,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20010673" sideWeight="0.67164177" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283582" sideWeight="0.48612595" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.48612595" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -818,13 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/mand_gen.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="1" selection-start="1848" selection-end="1848" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/FractalSurface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="16" selection-start="2209" selection-end="2209" vertical-scroll-proportion="0.0">
@@ -837,6 +828,13 @@
     <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="45" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.70051634">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hiq/SimpleFractal/mand_gen.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.5721393">
           <folding />
         </state>
       </provider>
