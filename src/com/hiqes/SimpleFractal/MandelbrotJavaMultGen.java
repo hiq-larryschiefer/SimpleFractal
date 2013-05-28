@@ -1,4 +1,4 @@
-package com.hiq.SimpleFractal;
+package com.hiqes.SimpleFractal;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.Semaphore;

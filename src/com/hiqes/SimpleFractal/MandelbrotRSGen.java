@@ -1,4 +1,4 @@
-package com.hiq.SimpleFractal;
+package com.hiqes.SimpleFractal;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,7 +10,7 @@ import android.renderscript.RenderScript;
 import android.renderscript.Type;
 import android.util.Log;
 
-import com.hiq.SimpleFractal.mand_gen.ScriptC_mand_gen;
+import com.hiqes.SimpleFractal.mand_gen.ScriptC_mand_gen;
 
 public class MandelbrotRSGen extends FractalGen {
     private static final String LOG_TAG = MandelbrotRSGen.class.getSimpleName();

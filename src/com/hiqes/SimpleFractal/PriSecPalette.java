@@ -1,4 +1,4 @@
-package com.hiq.SimpleFractal;
+package com.hiqes.SimpleFractal;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;

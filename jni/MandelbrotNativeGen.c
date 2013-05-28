@@ -192,14 +192,14 @@ static void singleDoGen(ThreadPool *pool) {
 
 
 JNIEXPORT jint JNICALL
-Java_com_hiq_SimpleFractal_MandelbrotNativeGen_generate(JNIEnv *env,
-                                                        jobject obj,
-                                                        jint threads,
-                                                        jint width,
-                                                        jint height,
-                                                        jint iter,
-                                                        jintArray bitmap,
-                                                        jintArray palette) {
+Java_com_hiqes_SimpleFractal_MandelbrotNativeGen_generate(JNIEnv *env,
+                                                          jobject obj,
+                                                          jint threads,
+                                                          jint width,
+                                                          jint height,
+                                                          jint iter,
+                                                          jintArray bitmap,
+                                                          jintArray palette) {
     pthread_attr_t              attr;
     int                         done = 0;
     jint                        ret = -1;
