@@ -19,9 +19,11 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
 
     public static final int     DEFAULT_ITERATIONS = 200;
     public static final int     GEN_MAND_JAVA = 0;
-    public static final int     GEN_MAND_RS = 1;
-    public static final int     GEN_MAND_NATIVE = 2;
-    public static final int     GEN_COUNT = 2;  //  No native yet
+    public static final int     GEN_MAND_JAVA_MULT = 1;
+    public static final int     GEN_MAND_RS = 2;
+    public static final int     GEN_MAND_NATIVE = 3;
+    public static final int     GEN_MAND_NATIVE_MULT = 4;
+    public static final int     GEN_COUNT = 5;
 
     private Context             mContext;
     private boolean             mSurfaceReady = false;
@@ -116,12 +118,38 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
                                                mPalette.getPalette());
                 break;
 
+            case GEN_MAND_JAVA_MULT:
+                newGen = new MandelbrotJavaMultGen(mContext,
+                                                   mWidth,
+                                                   mHeight,
+                                                   DEFAULT_ITERATIONS,
+                                                   mPalette.getPalette());
+                break;
+
             case GEN_MAND_RS:
                 newGen = new MandelbrotRSGen(mContext,
                                              mWidth,
                                              mHeight,
                                              DEFAULT_ITERATIONS,
                                              mPalette.getPalette());
+                break;
+
+            case GEN_MAND_NATIVE:
+                newGen = new MandelbrotNativeGen(mContext,
+                                                 false,
+                                                 mWidth,
+                                                 mHeight,
+                                                 DEFAULT_ITERATIONS,
+                                                 mPalette.getPalette());
+                break;
+
+            case GEN_MAND_NATIVE_MULT:
+                newGen = new MandelbrotNativeGen(mContext,
+                                                 true,
+                                                 mWidth,
+                                                 mHeight,
+                                                 DEFAULT_ITERATIONS,
+                                                 mPalette.getPalette());
                 break;
 
             default:

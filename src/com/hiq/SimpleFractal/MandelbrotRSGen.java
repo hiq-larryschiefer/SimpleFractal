@@ -8,6 +8,8 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.Type;
+import android.util.Log;
+
 import com.hiq.SimpleFractal.mand_gen.ScriptC_mand_gen;
 
 public class MandelbrotRSGen extends FractalGen {
