@@ -67,7 +67,7 @@ public class MandelbrotRSGen extends FractalGen {
 
         //  Pass the output alloc as the input to ensure the same size data
         //  is automatically walked.
-        mMandGen.forEach_root(outAlloc, outAlloc);
+        mMandGen.forEach_root(outAlloc);
         outAlloc.copyTo(outBitmap);
         outBitmap.getPixels(bitmap, 0, mWidth, 0, 0, mWidth, mHeight);
         return 0;

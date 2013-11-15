@@ -33,7 +33,7 @@ void init(void) {
     zoom = 1;
 }
 
-void root(const uchar4 *v_in, uchar4 *v_out, uint32_t x, uint32_t y) {
+void root(uchar4 *v_out, uint32_t x, uint32_t y) {
     int                         i;
     double                      xScaler;
     double                      yScaler;
