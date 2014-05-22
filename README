@@ -8,7 +8,5 @@ Timing data is ELAPSED time, not EXECUTION time.  Logged as well as printed via 
 STILL NEEDED:
 - zoom in/out 
 - configuration settings for #iterations, default zoom
-- Native generator implementation
-- Multi-threaded Java implementation
-- Multi-threaded native generator
+- Native using RenderScript generator implementation
 
