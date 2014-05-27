@@ -43,7 +43,6 @@ public class MandelbrotJavaGen extends FractalGen {
         int                     i;
 
         //  Perform a simple loop over all pixels in the bitmap
-        //  TODO - optimize by breaking this into threads, possible by line
         double xScaler = (MAX_X_VAL - MIN_X_VAL) / (double)mWidth;
         double yScaler = (MAX_Y_VAL - MIN_Y_VAL) / (double)mHeight;
 
@@ -76,7 +75,6 @@ public class MandelbrotJavaGen extends FractalGen {
             }
         }
 
-        //  LJS: TODO - Generate the bitmap based on the current width, height, zoom and iterations
         return 0;
     }
 

@@ -24,6 +24,9 @@ import android.view.SurfaceView;
 import android.view.SurfaceHolder;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class FractalSurface extends SurfaceView implements SurfaceHolder.Callback {
     private static final String LOG_TAG = "FractalSurface";
 
@@ -46,6 +49,7 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
     private int                 mHeight = 0;
     private AlertDialog.Builder mBuilder;
     private AlertDialog         mDialog;
+    private ArrayList<GeneratorTask> mRunningTasks = new ArrayList<GeneratorTask>();
 
     private void init(Context context) {
         getHolder().addCallback(this);
@@ -75,6 +79,7 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
 
     public void shutdown() {
         getHolder().removeCallback(this);
+        cancelRunningTasks();
     }
 
     @Override
@@ -113,6 +118,7 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
     public void surfaceDestroyed(SurfaceHolder holder) {
         synchronized (this) {
             mSurfaceReady = false;
+            cancelRunningTasks();
         }
     }
 
@@ -187,10 +193,24 @@ public class FractalSurface extends SurfaceView implements SurfaceHolder.Callbac
         mDialog.show();
 
         Log.d(LOG_TAG, "Kicking off generation");
-        new GeneratorTask().execute(needGen);
+        GeneratorTask task = new GeneratorTask();
+        mRunningTasks.add(task);
+        task.execute(needGen);
     }
 
+    private void cancelRunningTasks() {
+        for (Iterator<GeneratorTask> iter = mRunningTasks.iterator();
+             iter.hasNext();
+             /*  pulls in the loop */) {
+            GeneratorTask curTask = iter.next();
+            iter.remove();
+            curTask.cancel(true);
+        }
+    }
     public void switchGenerator() {
+        //  Cancel any execution already in progress
+        cancelRunningTasks();
+
         //  Switch generator and re-generate
         mCurGen++;
         mGen = null;
