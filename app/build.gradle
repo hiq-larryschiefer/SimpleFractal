@@ -1,0 +1,32 @@
+apply plugin: 'android'
+android {
+    compileSdkVersion 19
+    buildToolsVersion '19.0.3'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 18
+
+        //  To build RS for use by NDK code, enable this option
+        //  NOTE: This can be set in a "flavor" to control it rather
+        //  than the default config.  However, this is a one or the
+        //  other setting for the reflection classes: you either get
+        //  Java or CPP, not both.
+        //renderscriptNdkMode true
+
+        ndk {
+            moduleName "mand_gen_native"
+            ldLibs "log"
+        }
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+}
