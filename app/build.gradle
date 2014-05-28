@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 18
+        targetSdkVersion 19
 
         //  To build RS for use by NDK code, enable this option
         //  NOTE: This can be set in a "flavor" to control it rather
@@ -13,6 +13,10 @@ android {
         //  other setting for the reflection classes: you either get
         //  Java or CPP, not both.
         //renderscriptNdkMode true
+
+        //  Enable RenderScript support library (requires AS 0.5.x+)
+        renderscriptTargetApi 19
+        renderscriptSupportMode true
 
         ndk {
             moduleName "mand_gen_native"
