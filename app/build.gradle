@@ -1,7 +1,7 @@
 apply plugin: 'android'
 android {
     compileSdkVersion 19
-    buildToolsVersion '19.0.3'
+    buildToolsVersion '19.1.0'
 
     defaultConfig {
         minSdkVersion 14
@@ -16,7 +16,7 @@ android {
 
         //  Enable RenderScript support library (requires AS 0.5.x+)
         renderscriptTargetApi 19
-        renderscriptSupportMode true
+        renderscriptSupportModeEnabled true
 
         ndk {
             moduleName "mand_gen_native"
@@ -26,7 +26,7 @@ android {
 
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
