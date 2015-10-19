@@ -1,11 +1,11 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 19
-    buildToolsVersion '19.1.0'
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 19
+        targetSdkVersion 23
 
         //  To build RS for use by NDK code, enable this option
         //  NOTE: This can be set in a "flavor" to control it rather
