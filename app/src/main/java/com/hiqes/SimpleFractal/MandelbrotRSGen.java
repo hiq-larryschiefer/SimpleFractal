@@ -12,12 +12,10 @@ package com.hiqes.SimpleFractal;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.renderscript.Allocation;
-import android.renderscript.Element;
-import android.renderscript.RenderScript;
-import android.renderscript.Type;
+import android.support.v8.renderscript.Allocation;
+import android.support.v8.renderscript.Element;
+import android.support.v8.renderscript.RenderScript;
+import android.support.v8.renderscript.Type;
 import android.util.Log;
 
 import com.hiqes.SimpleFractal.mand_gen.ScriptC_mand_gen;
@@ -65,8 +63,7 @@ public class MandelbrotRSGen extends FractalGen {
         outBitmap = Bitmap.createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
         outAlloc = Allocation.createFromBitmap(mRSCtx, outBitmap);
 
-        //  Pass the output alloc as the input to ensure the same size data
-        //  is automatically walked.
+        //  Call the RS kernel to do the computation and get back the data.
         mMandGen.forEach_root(outAlloc);
         outAlloc.copyTo(outBitmap);
         outBitmap.getPixels(bitmap, 0, mWidth, 0, 0, mWidth, mHeight);
