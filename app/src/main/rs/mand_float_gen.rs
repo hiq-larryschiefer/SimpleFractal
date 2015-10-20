@@ -25,7 +25,7 @@ const static float STOP_VAL = MODULO_VAL * MODULO_VAL;
 int32_t width;
 int32_t height;
 int32_t iter;
-int32_t palette[PALETTE_MAX];
+int32_t *palette;
 int32_t paletteLen;
 
 //  Unused for now
@@ -37,16 +37,8 @@ void init(void) {
     zoom = 1;
 }
 
-rs_allocation alloc_palette;
-
-void setPalette() {
-    for (int i = 0; i < paletteLen; i++) {
-        palette[i] = rsGetElementAt_int(alloc_palette, i);
-    }
-}
-
 void root(uchar4 *v_out, uint32_t x, uint32_t y) {
-    int                         i;
+    int                        i;
     float                      xScaler;
     float                      yScaler;
     float                      scaledX;
@@ -87,3 +79,4 @@ void root(uchar4 *v_out, uint32_t x, uint32_t y) {
     v_out->g = (palette[paletteIndex] & 0x0000FF00) >> 8;
     v_out->b = (palette[paletteIndex] & 0x000000FF);
 }
+

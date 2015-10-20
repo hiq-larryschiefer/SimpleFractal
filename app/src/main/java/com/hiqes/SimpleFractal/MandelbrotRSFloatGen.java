@@ -12,17 +12,17 @@ package com.hiqes.SimpleFractal;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.renderscript.Allocation;
-import android.renderscript.Element;
-import android.renderscript.RenderScript;
-import android.renderscript.Type;
+import android.support.v8.renderscript.Allocation;
+import android.support.v8.renderscript.Element;
+import android.support.v8.renderscript.RenderScript;
+import android.support.v8.renderscript.Type;
 import android.util.Log;
+
+import com.hiqes.SimpleFractal.ScriptC_mand_float_gen;
 
 public class MandelbrotRSFloatGen extends FractalGen {
     private static final String LOG_TAG = MandelbrotRSFloatGen.class.getSimpleName();
-    private static final String FRACT_GEN_NAME = "Mandelbrot Renderscript Float Generator";
+    private static final String FRACT_GEN_NAME = "Mandelbrot Renderscript Relaxed FP Generator";
 
     RenderScript                mRSCtx;
     ScriptC_mand_float_gen      mMandGen;
@@ -34,8 +34,8 @@ public class MandelbrotRSFloatGen extends FractalGen {
         //  Then create our actual script which will do the real work
         mRSCtx = RenderScript.create(mContext);
             mMandGen = new ScriptC_mand_float_gen(mRSCtx,
-                                            mContext.getResources(),
-                                            R.raw.mand_float_gen);
+                                                  mContext.getResources(),
+                                                  R.raw.mand_float_gen);
 
         //  Set the initial parameters for the generator.
         //  TODO: ADD SUPPORT FOR RE-CENTERING AND ZOOM
@@ -46,13 +46,11 @@ public class MandelbrotRSFloatGen extends FractalGen {
         Type.Builder intArrayBuilder = new Type.Builder(mRSCtx,
                                                         Element.I32(mRSCtx));
         intArrayBuilder.setX(mPalette.length);
-        Log.e(LOG_TAG, String.format("palette length: %d", mPalette.length));
         Allocation allocPalette =
             Allocation.createTyped(mRSCtx,
                                    intArrayBuilder.create());
         allocPalette.copyFrom(mPalette);
-        mMandGen.set_alloc_palette(allocPalette);
-        mMandGen.invoke_setPalette();
+        mMandGen.bind_palette(allocPalette);
     }
 
     @Override
@@ -65,8 +63,7 @@ public class MandelbrotRSFloatGen extends FractalGen {
         outBitmap = Bitmap.createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
         outAlloc = Allocation.createFromBitmap(mRSCtx, outBitmap);
 
-        //  Pass the output alloc as the input to ensure the same size data
-        //  is automatically walked.
+        //  Call the RS kernel to do the computation and get back the data.
         mMandGen.forEach_root(outAlloc);
         outAlloc.copyTo(outBitmap);
         outBitmap.getPixels(bitmap, 0, mWidth, 0, 0, mWidth, mHeight);

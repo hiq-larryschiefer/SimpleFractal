@@ -9,7 +9,7 @@
  * published by the Free Software Foundation.
  */
 #pragma version(1)
-#pragma rs java_package_name(com.hiqes.SimpleFractal.mand_gen)
+#pragma rs java_package_name(com.hiqes.SimpleFractal)
 
 const static double MIN_X_VAL = -2.5;
 const static double MAX_X_VAL = 1.0;

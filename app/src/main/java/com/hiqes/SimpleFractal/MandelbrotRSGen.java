@@ -18,7 +18,7 @@ import android.support.v8.renderscript.RenderScript;
 import android.support.v8.renderscript.Type;
 import android.util.Log;
 
-import com.hiqes.SimpleFractal.mand_gen.ScriptC_mand_gen;
+import com.hiqes.SimpleFractal.ScriptC_mand_gen;
 
 public class MandelbrotRSGen extends FractalGen {
     private static final String LOG_TAG = MandelbrotRSGen.class.getSimpleName();
