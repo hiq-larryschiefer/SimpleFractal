@@ -17,3 +17,7 @@ Because of the state of NDK builds and Android Studio (1.4), the build currently
 
 You can find the "NDK Bundle" in the SDK Manager (stand alone) in the "Extras" section near the bottom of the window.  Alternatively, using the Android Studio built-in support for the SDK management, go to Android Studio's Preferences -> Appearance & Behavior -> System Settings -> Android SDK and select the "SDK Tools" tab.  Check the "Android NDK" and apply.
 
+You can also setup the SDK path and NDK path using environment variables:
+ANDROID_HOME=<your sdk location>
+ANDROID_NDK_HOME=<ndk bundle location under the sdk>
+
