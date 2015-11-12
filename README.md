@@ -21,3 +21,5 @@ You can also setup the SDK path and NDK path using environment variables:
 ANDROID_HOME=<your sdk location>
 ANDROID_NDK_HOME=<ndk bundle location under the sdk>
 
+Note that if you do not use the SDK to install the NDK bundle, you will need to have Android NDK r10e in order to support the above build changes.
+
