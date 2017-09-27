@@ -33,9 +33,7 @@ public class MandelbrotRSFloatGen extends FractalGen {
         //  Create the RenderScript context used to communicate with our RS.
         //  Then create our actual script which will do the real work
         mRSCtx = RenderScript.create(mContext);
-            mMandGen = new ScriptC_mand_float_gen(mRSCtx,
-                                                  mContext.getResources(),
-                                                  R.raw.mand_float_gen);
+            mMandGen = new ScriptC_mand_float_gen(mRSCtx);
 
         //  Set the initial parameters for the generator.
         //  TODO: ADD SUPPORT FOR RE-CENTERING AND ZOOM
